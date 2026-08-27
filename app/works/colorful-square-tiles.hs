@@ -25,7 +25,7 @@ tiles tileSize numCols numRows =
         let x = fromIntegral j * tileSize
             y = fromIntegral i * tileSize
 
-            depth = 3 + ((i * 3 + j * 5) `mod` 3)
+            depth = min (3 + ((i * (numRows - 2) + j * (numCols - 1)) `mod` 3)) 4
 
             c1 = if even (i + j) then cIndigo else cCoral
             c2 = if (i * j) `mod` 3 == 0 then cMustard else cTeal
